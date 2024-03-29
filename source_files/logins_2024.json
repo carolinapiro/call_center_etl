@@ -1,0 +1,776 @@
+[
+  {
+    "callid": 708,
+    "customerid": 1133466,
+    "logindate": "8/25/2023 15:32:00",
+    "channel": 1
+  },
+  {
+    "callid": 709,
+    "customerid": 1133466,
+    "logindate": "8/25/2023 15:26:49",
+    "channel": 2
+  },
+  {
+    "callid": 799,
+    "customerid": 1163726,
+    "logindate": "7/28/2023 14:08:44",
+    "channel": 2
+  },
+  {
+    "callid": 804,
+    "customerid": 1164064,
+    "logindate": "7/27/2023 10:32:28",
+    "channel": 1
+  },
+  {
+    "callid": 805,
+    "customerid": 1164338,
+    "logindate": "8/25/2023 12:44:02",
+    "channel": 2
+  },
+  {
+    "callid": 827,
+    "customerid": 1168427,
+    "logindate": "7/25/2023 12:26:07",
+    "channel": 1
+  },
+  {
+    "callid": 832,
+    "customerid": 1168689,
+    "logindate": "7/28/2023 16:08:14",
+    "channel": 2
+  },
+  {
+    "callid": 834,
+    "customerid": 1168712,
+    "logindate": "7/25/2023 15:21:14",
+    "channel": 2
+  },
+  {
+    "callid": 842,
+    "customerid": 1189951,
+    "logindate": "7/28/2023 16:01:41",
+    "channel": 2
+  },
+  {
+    "callid": 843,
+    "customerid": 1189953,
+    "logindate": "7/25/2023 15:20:08",
+    "channel": 1
+  },
+  {
+    "callid": 844,
+    "customerid": 1189962,
+    "logindate": "7/27/2023 9:44:10",
+    "channel": 2
+  },
+  {
+    "callid": 854,
+    "customerid": 1192883,
+    "logindate": "7/25/2023 15:21:58",
+    "channel": 1
+  },
+  {
+    "callid": 855,
+    "customerid": 1193154,
+    "logindate": "7/25/2023 18:09:16",
+    "channel": 2
+  },
+  {
+    "callid": 863,
+    "customerid": 1193345,
+    "logindate": "7/25/2023 16:24:12",
+    "channel": 2
+  },
+  {
+    "callid": 865,
+    "customerid": 1193352,
+    "logindate": "6/27/2023 17:11:02",
+    "channel": 2
+  },
+  {
+    "callid": 868,
+    "customerid": 1193363,
+    "logindate": "7/27/2023 10:05:15",
+    "channel": 2
+  },
+  {
+    "callid": 873,
+    "customerid": 1193702,
+    "logindate": "6/27/2023 16:40:09",
+    "channel": 1
+  },
+  {
+    "callid": 876,
+    "customerid": 1193708,
+    "logindate": "6/27/2023 15:20:04",
+    "channel": 1
+  },
+  {
+    "callid": 878,
+    "customerid": 1193714,
+    "logindate": "6/28/2023 13:10:25",
+    "channel": 1
+  },
+  {
+    "callid": 880,
+    "customerid": 1193719,
+    "logindate": "6/27/2023 15:24:09",
+    "channel": 2
+  },
+  {
+    "callid": 883,
+    "customerid": 1193724,
+    "logindate": "6/27/2023 13:04:42",
+    "channel": 2
+  },
+  {
+    "callid": 886,
+    "customerid": 1193728,
+    "logindate": "6/28/2023 17:41:39",
+    "channel": 1
+  },
+  {
+    "callid": 887,
+    "customerid": 1193730,
+    "logindate": "6/27/2023 13:22:34",
+    "channel": 1
+  },
+  {
+    "callid": 889,
+    "customerid": 1193731,
+    "logindate": "6/27/2023 15:08:25",
+    "channel": 2
+  },
+  {
+    "callid": 891,
+    "customerid": 1193732,
+    "logindate": "6/28/2023 15:25:09",
+    "channel": 1
+  },
+  {
+    "callid": 893,
+    "customerid": 1193735,
+    "logindate": "6/28/2023 16:53:16",
+    "channel": 1
+  },
+  {
+    "callid": 894,
+    "customerid": 1193736,
+    "logindate": "6/28/2023 13:50:53",
+    "channel": 1
+  },
+  {
+    "callid": 896,
+    "customerid": 1193737,
+    "logindate": "6/28/2023 14:01:47",
+    "channel": 2
+  },
+  {
+    "callid": 898,
+    "customerid": 1193738,
+    "logindate": "6/27/2023 14:11:45",
+    "channel": 1
+  },
+  {
+    "callid": 899,
+    "customerid": 1193741,
+    "logindate": "6/27/2023 16:25:08",
+    "channel": 2
+  },
+  {
+    "callid": 900,
+    "customerid": 1193742,
+    "logindate": "6/27/2023 16:52:43",
+    "channel": 2
+  },
+  {
+    "callid": 901,
+    "customerid": 1193744,
+    "logindate": "6/28/2023 13:50:08",
+    "channel": 1
+  },
+  {
+    "callid": 902,
+    "customerid": 1193744,
+    "logindate": "6/28/2023 15:18:06",
+    "channel": 2
+  },
+  {
+    "callid": 903,
+    "customerid": 1193747,
+    "logindate": "6/28/2023 17:32:38",
+    "channel": 1
+  },
+  {
+    "callid": 904,
+    "customerid": 1193748,
+    "logindate": "6/28/2023 13:38:05",
+    "channel": 1
+  },
+  {
+    "callid": 905,
+    "customerid": 1193771,
+    "logindate": "7/27/2023 17:09:45",
+    "channel": 1
+  },
+  {
+    "callid": 911,
+    "customerid": 1203556,
+    "logindate": "7/27/2023 10:46:09",
+    "channel": 2
+  },
+  {
+    "callid": 914,
+    "customerid": 1203596,
+    "logindate": "7/27/2023 10:05:33",
+    "channel": 1
+  },
+  {
+    "callid": 915,
+    "customerid": 1203597,
+    "logindate": "7/25/2023 14:03:00",
+    "channel": 1
+  },
+  {
+    "callid": 916,
+    "customerid": 1203608,
+    "logindate": "7/25/2023 15:04:52",
+    "channel": 1
+  },
+  {
+    "callid": 918,
+    "customerid": 1203613,
+    "logindate": "7/25/2023 9:35:41",
+    "channel": 1
+  },
+  {
+    "callid": 919,
+    "customerid": 1203613,
+    "logindate": "7/25/2023 14:57:52",
+    "channel": 2
+  },
+  {
+    "callid": 920,
+    "customerid": 1203614,
+    "logindate": "7/25/2023 9:29:44",
+    "channel": 1
+  },
+  {
+    "callid": 925,
+    "customerid": 1203630,
+    "logindate": "7/25/2023 11:44:59",
+    "channel": 2
+  },
+  {
+    "callid": 926,
+    "customerid": 1203630,
+    "logindate": "7/25/2023 12:06:35",
+    "channel": 1
+  },
+  {
+    "callid": 927,
+    "customerid": 1203632,
+    "logindate": "7/25/2023 15:33:39",
+    "channel": 1
+  },
+  {
+    "callid": 931,
+    "customerid": 1203638,
+    "logindate": "7/25/2023 15:53:27",
+    "channel": 2
+  },
+  {
+    "callid": 932,
+    "customerid": 1203641,
+    "logindate": "7/25/2023 10:23:39",
+    "channel": 1
+  },
+  {
+    "callid": 935,
+    "customerid": 1203642,
+    "logindate": "7/25/2023 14:45:26",
+    "channel": 1
+  },
+  {
+    "callid": 939,
+    "customerid": 1203649,
+    "logindate": "7/25/2023 10:39:35",
+    "channel": 1
+  },
+  {
+    "callid": 941,
+    "customerid": 1203655,
+    "logindate": "7/25/2023 10:36:24",
+    "channel": 2
+  },
+  {
+    "callid": 944,
+    "customerid": 1203657,
+    "logindate": "7/25/2023 9:48:40",
+    "channel": 1
+  },
+  {
+    "callid": 945,
+    "customerid": 1203659,
+    "logindate": "7/25/2023 10:08:57",
+    "channel": 2
+  },
+  {
+    "callid": 948,
+    "customerid": 1203663,
+    "logindate": "7/25/2023 11:21:20",
+    "channel": 1
+  },
+  {
+    "callid": 952,
+    "customerid": 1203667,
+    "logindate": "7/27/2023 10:00:03",
+    "channel": 2
+  },
+  {
+    "callid": 955,
+    "customerid": 1203671,
+    "logindate": "7/27/2023 11:16:54",
+    "channel": 2
+  },
+  {
+    "callid": 956,
+    "customerid": 1203675,
+    "logindate": "7/28/2023 15:24:45",
+    "channel": 2
+  },
+  {
+    "callid": 958,
+    "customerid": 1203741,
+    "logindate": "7/27/2023 15:18:57",
+    "channel": 1
+  },
+  {
+    "callid": 959,
+    "customerid": 1203753,
+    "logindate": "7/27/2023 16:38:07",
+    "channel": 2
+  },
+  {
+    "callid": 961,
+    "customerid": 1203757,
+    "logindate": "7/27/2023 14:18:27",
+    "channel": 2
+  },
+  {
+    "callid": 964,
+    "customerid": 1203822,
+    "logindate": "7/28/2023 14:35:47",
+    "channel": 1
+  },
+  {
+    "callid": 965,
+    "customerid": 1203823,
+    "logindate": "7/27/2023 17:39:58",
+    "channel": 1
+  },
+  {
+    "callid": 966,
+    "customerid": 1203885,
+    "logindate": "7/27/2023 13:31:09",
+    "channel": 2
+  },
+  {
+    "callid": 967,
+    "customerid": 1203885,
+    "logindate": "7/27/2023 17:42:24",
+    "channel": 1
+  },
+  {
+    "callid": 970,
+    "customerid": 1203940,
+    "logindate": "7/28/2023 14:10:23",
+    "channel": 2
+  },
+  {
+    "callid": 972,
+    "customerid": 1203942,
+    "logindate": "7/28/2023 13:37:24",
+    "channel": 2
+  },
+  {
+    "callid": 973,
+    "customerid": 1203942,
+    "logindate": "7/28/2023 15:12:08",
+    "channel": 1
+  },
+  {
+    "callid": 974,
+    "customerid": 1203944,
+    "logindate": "7/27/2023 17:03:44",
+    "channel": 2
+  },
+  {
+    "callid": 975,
+    "customerid": 1203945,
+    "logindate": "7/28/2023 13:41:01",
+    "channel": 2
+  },
+  {
+    "callid": 979,
+    "customerid": 1203951,
+    "logindate": "7/28/2023 13:12:25",
+    "channel": 1
+  },
+  {
+    "callid": 981,
+    "customerid": 1203954,
+    "logindate": "7/28/2023 13:30:20",
+    "channel": 2
+  },
+  {
+    "callid": 982,
+    "customerid": 1203955,
+    "logindate": "7/28/2023 14:46:25",
+    "channel": 2
+  },
+  {
+    "callid": 984,
+    "customerid": 1203959,
+    "logindate": "7/28/2023 14:28:03",
+    "channel": 1
+  },
+  {
+    "callid": 985,
+    "customerid": 1206905,
+    "logindate": "8/25/2023 11:10:54",
+    "channel": 1
+  },
+  {
+    "callid": 986,
+    "customerid": 1206920,
+    "logindate": "8/25/2023 11:29:56",
+    "channel": 1
+  },
+  {
+    "callid": 987,
+    "customerid": 1206933,
+    "logindate": "8/25/2023 11:25:14",
+    "channel": 1
+  },
+  {
+    "callid": 988,
+    "customerid": 1206935,
+    "logindate": "8/25/2023 10:27:56",
+    "channel": 2
+  },
+  {
+    "callid": 990,
+    "customerid": 1206936,
+    "logindate": "8/25/2023 14:56:12",
+    "channel": 2
+  },
+  {
+    "callid": 996,
+    "customerid": 1206940,
+    "logindate": "8/25/2023 16:00:10",
+    "channel": 1
+  },
+  {
+    "callid": 999,
+    "customerid": 1206943,
+    "logindate": "8/25/2023 9:31:28",
+    "channel": 1
+  },
+  {
+    "callid": 1000,
+    "customerid": 1206944,
+    "logindate": "8/25/2023 11:58:41",
+    "channel": 2
+  },
+  {
+    "callid": 1001,
+    "customerid": 1206944,
+    "logindate": "8/25/2023 16:08:42",
+    "channel": 2
+  },
+  {
+    "callid": 1003,
+    "customerid": 1206946,
+    "logindate": "8/25/2023 15:02:51",
+    "channel": 1
+  },
+  {
+    "callid": 1005,
+    "customerid": 1206947,
+    "logindate": "8/25/2023 13:34:29",
+    "channel": 1
+  },
+  {
+    "callid": 1007,
+    "customerid": 1206951,
+    "logindate": "8/25/2023 11:09:43",
+    "channel": 2
+  },
+  {
+    "callid": 1009,
+    "customerid": 1206954,
+    "logindate": "8/25/2023 15:32:00",
+    "channel": 2
+  },
+  {
+    "callid": 1010,
+    "customerid": 1206955,
+    "logindate": "8/25/2023 10:18:16",
+    "channel": 1
+  },
+  {
+    "callid": 1011,
+    "customerid": 1206956,
+    "logindate": "8/25/2023 10:23:24",
+    "channel": 1
+  },
+  {
+    "callid": 1018,
+    "customerid": 1206966,
+    "logindate": "8/25/2023 12:21:12",
+    "channel": 1
+  },
+  {
+    "callid": 1020,
+    "customerid": 1206966,
+    "logindate": "8/28/2023 9:52:58",
+    "channel": 1
+  },
+  {
+    "callid": 1022,
+    "customerid": 1206967,
+    "logindate": "8/25/2023 11:59:59",
+    "channel": 2
+  },
+  {
+    "callid": 1023,
+    "customerid": 1206967,
+    "logindate": "8/28/2023 10:16:09",
+    "channel": 1
+  },
+  {
+    "callid": 1024,
+    "customerid": 1206968,
+    "logindate": "8/25/2023 10:02:45",
+    "channel": 1
+  },
+  {
+    "callid": 1025,
+    "customerid": 1206968,
+    "logindate": "8/25/2023 11:49:10",
+    "channel": 2
+  },
+  {
+    "callid": 1027,
+    "customerid": 1206969,
+    "logindate": "8/25/2023 16:23:15",
+    "channel": 2
+  },
+  {
+    "callid": 1028,
+    "customerid": 1206971,
+    "logindate": "8/25/2023 13:21:10",
+    "channel": 1
+  },
+  {
+    "callid": 1030,
+    "customerid": 1206972,
+    "logindate": "8/25/2023 13:45:33",
+    "channel": 2
+  },
+  {
+    "callid": 1031,
+    "customerid": 1206972,
+    "logindate": "8/25/2023 14:59:14",
+    "channel": 2
+  },
+  {
+    "callid": 1032,
+    "customerid": 1206972,
+    "logindate": "8/25/2023 15:28:10",
+    "channel": 2
+  },
+  {
+    "callid": 1034,
+    "customerid": 1206973,
+    "logindate": "8/25/2023 15:36:27",
+    "channel": 2
+  },
+  {
+    "callid": 1035,
+    "customerid": 1206973,
+    "logindate": "8/25/2023 16:34:37",
+    "channel": 1
+  },
+  {
+    "callid": 1036,
+    "customerid": 1206974,
+    "logindate": "8/25/2023 15:28:18",
+    "channel": 2
+  },
+  {
+    "callid": 1038,
+    "customerid": 1206978,
+    "logindate": "8/25/2023 12:34:54",
+    "channel": 1
+  },
+  {
+    "callid": 1039,
+    "customerid": 1206983,
+    "logindate": "8/28/2023 9:50:01",
+    "channel": 1
+  },
+  {
+    "callid": 1041,
+    "customerid": 1206985,
+    "logindate": "8/25/2023 13:56:09",
+    "channel": 2
+  },
+  {
+    "callid": 1042,
+    "customerid": 1206986,
+    "logindate": "8/25/2023 15:45:32",
+    "channel": 2
+  },
+  {
+    "callid": 1043,
+    "customerid": 1206986,
+    "logindate": "8/25/2023 16:28:33",
+    "channel": 1
+  },
+  {
+    "callid": 1044,
+    "customerid": 1206987,
+    "logindate": "8/25/2023 16:01:57",
+    "channel": 2
+  },
+  {
+    "callid": 1046,
+    "customerid": 1206991,
+    "logindate": "8/25/2023 13:35:58",
+    "channel": 2
+  },
+  {
+    "callid": 1048,
+    "customerid": 1206992,
+    "logindate": "8/25/2023 14:20:51",
+    "channel": 1
+  },
+  {
+    "callid": 1052,
+    "customerid": 1206996,
+    "logindate": "8/25/2023 16:18:07",
+    "channel": 2
+  },
+  {
+    "callid": 1053,
+    "customerid": 1206997,
+    "logindate": "8/25/2023 15:59:26",
+    "channel": 1
+  },
+  {
+    "callid": 1054,
+    "customerid": 1206997,
+    "logindate": "8/25/2023 15:55:06",
+    "channel": 1
+  },
+  {
+    "callid": 1055,
+    "customerid": 1206997,
+    "logindate": "8/28/2023 9:34:25",
+    "channel": 2
+  },
+  {
+    "callid": 1059,
+    "customerid": 1207006,
+    "logindate": "8/28/2023 9:41:26",
+    "channel": 2
+  },
+  {
+    "callid": 1061,
+    "customerid": 1207007,
+    "logindate": "8/28/2023 10:25:20",
+    "channel": 1
+  },
+  {
+    "callid": 1066,
+    "customerid": 1207018,
+    "logindate": "8/28/2023 16:18:05",
+    "channel": 1
+  },
+  {
+    "callid": 1069,
+    "customerid": 1207021,
+    "logindate": "8/28/2023 10:18:19",
+    "channel": 1
+  },
+  {
+    "callid": 1073,
+    "customerid": 1207029,
+    "logindate": "8/28/2023 14:42:56",
+    "channel": 2
+  },
+  {
+    "callid": 1075,
+    "customerid": 1207042,
+    "logindate": "8/28/2023 16:09:00",
+    "channel": 2
+  },
+  {
+    "callid": 1076,
+    "customerid": 1207043,
+    "logindate": "8/28/2023 15:18:07",
+    "channel": 1
+  },
+  {
+    "callid": 1077,
+    "customerid": 1207043,
+    "logindate": "8/28/2023 16:00:55",
+    "channel": 2
+  },
+  {
+    "callid": 1078,
+    "customerid": 1207044,
+    "logindate": "8/28/2023 17:35:00",
+    "channel": 2
+  },
+  {
+    "callid": 1079,
+    "customerid": 1207044,
+    "logindate": "8/28/2023 20:37:58",
+    "channel": 1
+  },
+  {
+    "callid": 1080,
+    "customerid": 1207045,
+    "logindate": "8/28/2023 20:34:49",
+    "channel": 1
+  },
+  {
+    "callid": 1081,
+    "customerid": 1207045,
+    "logindate": "8/28/2023 20:36:45",
+    "channel": 1
+  },
+  {
+    "callid": 1082,
+    "customerid": 1207045,
+    "logindate": "8/28/2023 21:14:34",
+    "channel": 1
+  },
+  {
+    "callid": 1083,
+    "customerid": 1207047,
+    "logindate": "8/28/2023 18:13:13",
+    "channel": 2
+  },
+  {
+    "callid": 1085,
+    "customerid": 1207056,
+    "logindate": "8/28/2023 16:24:55",
+    "channel": 1
+  }
+]
