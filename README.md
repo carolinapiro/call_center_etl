@@ -47,3 +47,12 @@ Lógica de carga para Facts:
 - Se cargan los datos de la tabla stg a la Fact, primero eliminando los datos existentes para el período.
 
 Adicionalmente, al final del proceso se calculan métricas necesarias para el análisis.
+
+# Opciones de Schedule
+
+Actualmente, el repositorio incluye solo el código con la lógica a correr, lo cual puede hacerse manualmente por consola,
+habiendo configurado un virtual environment e instalado las dependencias en el archivo requirements.txt.
+
+Para que el proceso corra todos los días, se puede utilizar una Azure Function, junto con una Azure pipeline o GitHub Actions para deployar el código del repositorio en la Azure Function App.
+
+También se puede utilizar un orquestrador como Databricks Jobs o Airflow. Para utilizar Airflow, hay que hacer algunos cambios en el código para crear el DAG y las correspondientes Tasks.
