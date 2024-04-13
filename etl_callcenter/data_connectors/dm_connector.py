@@ -1,7 +1,8 @@
-
 from sqlalchemy import create_engine
 from sqlalchemy import text as sql_text
 import sys
+from pandas import DataFrame
+
 
 class DMConnector:
 
@@ -21,6 +22,7 @@ class DMConnector:
             error_message = 'Error - ' + str(sys.exc_info()[1])
             print(error_message)
 
+
     def execute_query(self, query: str):
         try:
             with self.engine.connect() as conn:
@@ -29,4 +31,14 @@ class DMConnector:
         except:
             error_message = 'Error - ' + str(sys.exc_info()[1])
             print(error_message)
+
     
+    def append_data_to_table(self, table: str, data: DataFrame):
+        try:
+            data.to_sql(name=table, 
+                        con=self.engine, 
+                        if_exists='append',
+                        index=False)
+        except:
+            error_message = 'Error - ' + str(sys.exc_info()[1])
+            print(error_message)

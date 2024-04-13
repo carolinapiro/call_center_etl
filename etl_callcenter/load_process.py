@@ -1,4 +1,3 @@
-
 from tables.Clientes import Clientes
 from tables.CanalesDigitales import CanalesDigitales
 from tables.Agentes import Agentes
@@ -13,41 +12,51 @@ procesos = DM_Processes()
 # procesos.insertar_proceso_diario()
 procesos_pendientes = procesos.buscar_procesos_pendientes()
 
-for index, proceso in procesos_pendientes.iterrows():
+if procesos_pendientes.shape[0] != 0:
 
-    if proceso.fact_table == "fact_llamadas":
+    # Carga Dimensiones relacionadas -------------------------------
+    
+    print("Loading dims")
 
-        # Actualiza estado proceso -------------------------------------
+    # Clientes
+    clientes = Clientes()
+    clientes.procesar_carga_dim()
 
-        procesos.actualizar_estado_proceso_corriendo(proceso.id_process)
+    # Canales Digitales
+    canales = CanalesDigitales()
+    canales.procesar_carga_dim()
 
+    # Agentes
+    agentes = Agentes()
+    agentes.procesar_carga_dim()
 
-        # Carga Dimensiones relacionadas -------------------------------
-
-        # Clientes
-        clientes = Clientes()
-        clientes.procesar_carga_clientes()
-
-        # Canales Digitales
-        canales = CanalesDigitales()
-        canales.procesar_carga_canales()
-
-        # Agentes
-        agentes = Agentes()
-        agentes.procesar_carga_agentes()
-
-        # Logins
-        logins = Logins()
-        logins.procesar_carga_logins()
+    # Logins
+    logins = Logins()
+    logins.procesar_carga_dim_fks()
 
 
-        # Carga Fact ---------------------------------------------------
+    for index, proceso in procesos_pendientes.iterrows():
 
-        # Llamadas
-        llamadas = Llamadas(start_date=proceso.start_date,end_date=proceso.end_date)
-        llamadas.procesar_carga_llamadas()
+        if proceso.fact_table == "fact_llamadas":
+
+            # Actualiza estado proceso -------------------------------------
+
+            procesos.actualizar_estado_proceso_corriendo(proceso.id_process)
+
+            print("Ongoing process updated")
 
 
-        # Actualiza estado proceso -------------------------------------
+            # Carga Fact ---------------------------------------------------
+            
+            print("Loading fact")
 
-        procesos.actualizar_estado_proceso_exitoso(proceso.id_process)
+            # Llamadas
+            llamadas = Llamadas(start_date=proceso.start_date,end_date=proceso.end_date)
+            llamadas.procesar_carga_fact()
+
+
+            # Actualiza estado proceso -------------------------------------
+
+            procesos.actualizar_estado_proceso_exitoso(proceso.id_process)
+
+            print("Successful process updated")

@@ -22,6 +22,7 @@ class DM_Processes:
             error_message = 'Error - ' + str(sys.exc_info()[1])
             print(error_message)
 
+
     def insertar_proceso_diario(self):
         fecha_ayer = (datetime.today() - timedelta(days=1)).strftime('%Y-%m-%d')
         fecha_hoy = (datetime.today()).strftime('%Y-%m-%d')

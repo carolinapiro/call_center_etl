@@ -1,4 +1,3 @@
-
 import pandas as pd
 
 from data_connectors.dm_connector import DMConnector
@@ -10,19 +9,16 @@ from datetime import datetime
 class Llamadas(FactTable):
     
     def __init__(self, start_date: datetime, end_date: datetime):
-        self.stg_fact_table = "stg_fact_llamadas"
-        self.fact_table = "fact_llamadas"
-        self.fact_id = "id_llamada"
+        self.stg_table = "stg_fact_llamadas"
+        self.table = "fact_llamadas"
+        self.id = "id_llamada"
         self.dm_connector = DMConnector()
 
+        self.source_data_type = 'csv'
         self.source_data_path = 'source_files/Llamadas_2024.csv'
 
         self.start_date = start_date
         self.end_date = end_date
-
-
-    def truncar_tabla_stg(self):
-        self.dm_connector.execute_query(query="TRUNCATE TABLE " + self.stg_fact_table )
 
 
     def extraer_datos_fuente(self):
@@ -62,31 +58,28 @@ class Llamadas(FactTable):
 
 
     def cargar_tabla_stg(self):
-        self.source_data_df_clean.to_sql(name=self.stg_fact_table, 
-                                            con=self.dm_connector.engine, 
-                                            if_exists='append',
-                                            index=False)
+        self.dm_connector.append_data_to_table(table=self.stg_table, data=self.source_data_df_clean)
     
-        self.dm_connector.execute_query(query="UPDATE " + self.stg_fact_table +
+        self.dm_connector.execute_query(query="UPDATE " + self.stg_table +
                                               " SET " + "id_agente_llamada" + " = dim_agentes_id_lookup(agente_llamada) ")
 
 
     def validar_dimensiones_fk(self):
         
         # Replace Null ids with default member's key
-        self.dm_connector.execute_query(query="UPDATE " + self.stg_fact_table +
+        self.dm_connector.execute_query(query="UPDATE " + self.stg_table +
                                               " SET " + "id_cliente_llamada" + " = -999 " + 
                                               " WHERE " + "id_cliente_llamada" + " is null ") 
         
-        self.dm_connector.execute_query(query="UPDATE " + self.stg_fact_table +
+        self.dm_connector.execute_query(query="UPDATE " + self.stg_table +
                                               " SET " + "id_agente_llamada" + " = -999 " + 
                                               " WHERE " + "id_agente_llamada" + " is null ")
 
         # Add inexistent ids to related dim table
-        self.dm_connector.execute_query(query="DROP TABLE IF EXISTS " + self.stg_fact_table + "_new_client_ids; " + 
-                                              "CREATE TEMPORARY TABLE " + self.stg_fact_table + "_new_client_ids " + " AS" +
+        self.dm_connector.execute_query(query="DROP TABLE IF EXISTS " + self.stg_table + "_new_client_ids; " + 
+                                              "CREATE TEMPORARY TABLE " + self.stg_table + "_new_client_ids " + " AS" +
                                               " SELECT DISTINCT " + "id_cliente_llamada" +
-                                              " FROM " + self.stg_fact_table +  
+                                              " FROM " + self.stg_table +  
                                               " WHERE " + "id_cliente_llamada" + " NOT IN ("
                                                                                     "SELECT DISTINCT " + "id_cliente" +
                                                                                     " FROM " + "dim_clientes" +
@@ -97,13 +90,13 @@ class Llamadas(FactTable):
                                               "SELECT id_cliente_llamada, " + 
                                                      "'unknown', " +
                                                      "'unknown'" +
-                                              " FROM " + self.stg_fact_table + "_new_client_ids; "
+                                              " FROM " + self.stg_table + "_new_client_ids; "
                                         )
 
-        self.dm_connector.execute_query(query="DROP TABLE IF EXISTS " + self.stg_fact_table + "_new_agentes_ids; " + 
-                                              "CREATE TEMPORARY TABLE " + self.stg_fact_table + "_new_agentes_ids " + " AS" +
+        self.dm_connector.execute_query(query="DROP TABLE IF EXISTS " + self.stg_table + "_new_agentes_ids; " + 
+                                              "CREATE TEMPORARY TABLE " + self.stg_table + "_new_agentes_ids " + " AS" +
                                               " SELECT DISTINCT " + "id_agente_llamada" +
-                                              " FROM " + self.stg_fact_table +  
+                                              " FROM " + self.stg_table +  
                                               " WHERE " + "id_agente_llamada" + " NOT IN ("
                                                                                     "SELECT DISTINCT " + "id_agente" +
                                                                                     " FROM " + "dim_agentes" +
@@ -118,23 +111,23 @@ class Llamadas(FactTable):
                                                      "0, " +
                                                      "'unknown', " +
                                                      "'unknown'" +
-                                              " FROM " + self.stg_fact_table + "_new_agentes_ids; "
+                                              " FROM " + self.stg_table + "_new_agentes_ids; "
                                         )
 
 
     def mapear_keys_dimensiones_fk(self):
-        self.dm_connector.execute_query(query="UPDATE " + self.stg_fact_table +
+        self.dm_connector.execute_query(query="UPDATE " + self.stg_table +
                                               " SET " + "key_cliente_llamada" + " = dim_clientes_key_lookup(id_cliente_llamada) ") 
               
-        self.dm_connector.execute_query(query="UPDATE " + self.stg_fact_table +
+        self.dm_connector.execute_query(query="UPDATE " + self.stg_table +
                                               " SET " + "key_agente_llamada" + " = dim_agentes_key_lookup(id_agente_llamada) ")
 
 
     def cargar_tabla_fact(self):
-        self.dm_connector.execute_query(query="DELETE FROM " + self.fact_table + " f " +
+        self.dm_connector.execute_query(query="DELETE FROM " + self.table + " f " +
                                               "WHERE fecha_llamada between '" + str(self.start_date) + "' and '" + str(self.end_date) + "';" + 
                                         
-                                        "INSERT INTO " + self.fact_table + " ( fecha_llamada, " + 
+                                        "INSERT INTO " + self.table + " ( fecha_llamada, " + 
                                                                                 "key_cliente_llamada, " + 
                                                                                 "campania_llamada, " + 
                                                                                 "telefono_llamada, " +
@@ -148,7 +141,7 @@ class Llamadas(FactTable):
                                                  "stg.key_agente_llamada, " +
                                                  "stg.tiempo_hablado_llamada, " + 
                                                  "stg.tiempo_total_llamada  " +
-                                        "FROM " + self.stg_fact_table + " stg"                                    
+                                        "FROM " + self.stg_table + " stg"                                    
                                      )
 
 
@@ -179,13 +172,3 @@ class Llamadas(FactTable):
                                                 "where fact_llamadas.key_llamada = primer_login_post_llamada.key_llamada ")
 
 
-    def procesar_carga_llamadas(self):
-
-        self.truncar_tabla_stg()
-        self.extraer_datos_fuente()
-        self.limpiar_datos_fuente()
-        self.cargar_tabla_stg()
-        self.validar_dimensiones_fk()
-        self.mapear_keys_dimensiones_fk()
-        self.cargar_tabla_fact()
-        self.calcular_medidas()

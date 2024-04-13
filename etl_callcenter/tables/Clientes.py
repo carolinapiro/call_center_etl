@@ -1,4 +1,3 @@
-
 import pandas as pd
 
 from data_connectors.dm_connector import DMConnector
@@ -8,16 +7,13 @@ from tables.BaseTables import DimTable
 class Clientes(DimTable):
     
     def __init__(self):
-        self.stg_dim_table = "stg_dim_clientes"
-        self.dim_table = "dim_clientes"
-        self.dim_id = "id_cliente"
+        self.stg_table = "stg_dim_clientes"
+        self.table = "dim_clientes"
+        self.id = "id_cliente"
         self.dm_connector = DMConnector()
 
+        self.source_data_type = 'csv'
         self.source_data_path = 'source_files/Customers_2024.csv'
-
-
-    def truncar_tabla_stg(self):
-        self.dm_connector.execute_query(query="TRUNCATE TABLE " + self.stg_dim_table )
 
 
     def extraer_datos_fuente(self):
@@ -40,19 +36,12 @@ class Clientes(DimTable):
         self.source_data_df_clean.rename(columns = {'CustomerID':'id_cliente'}, inplace = True) 
         self.source_data_df_clean.rename(columns = {'Gender':'genero_cliente'}, inplace = True) 
         self.source_data_df_clean.rename(columns = {'Type':'tipo_cliente'}, inplace = True) 
-
-
-    def cargar_tabla_stg(self):
-        self.source_data_df_clean.to_sql(name=self.stg_dim_table, 
-                                            con=self.dm_connector.engine, 
-                                            if_exists='append',
-                                            index=False)
     
 
     def cargar_tabla_dim(self):
-        self.dm_connector.execute_query(query="MERGE INTO " + self.dim_table + " dim " +
-                                        "USING " + self.stg_dim_table + " stg " +
-                                        "ON stg." + self.dim_id + " = dim." + self.dim_id +
+        self.dm_connector.execute_query(query="MERGE INTO " + self.table + " dim " +
+                                        "USING " + self.stg_table + " stg " +
+                                        "ON stg." + self.id + " = dim." + self.id +
                                         " WHEN MATCHED THEN " + 
                                             "UPDATE SET genero_cliente = stg.genero_cliente, " + 
                                                        "tipo_cliente = stg.tipo_cliente " + 
@@ -64,11 +53,3 @@ class Clientes(DimTable):
                                                      "stg.genero_cliente, " + 
                                                      "stg.tipo_cliente ) "                                       
                                      )
-        
-    def procesar_carga_clientes(self):
-
-        self.truncar_tabla_stg()
-        self.extraer_datos_fuente()
-        self.limpiar_datos_fuente()
-        self.cargar_tabla_stg()
-        self.cargar_tabla_dim()
