@@ -10,14 +10,14 @@ class CanalesDigitales(DimTable):
         self.stg_table = "stg_dim_canales_digitales"
         self.table = "dim_canales_digitales"
         self.id = "id_canal_digital"
-        self.dm_connector = DMConnector()
 
         self.source_data_type = 'csv'
         self.source_data_path = 'source_files/CanalDigital_2024.csv'
 
+        self.dm_connector = None
+        self.source_connector = None
 
-    def extraer_datos_fuente(self):
-        self.source_data_df = pd.read_csv(self.source_data_path, encoding='latin-1')
+        DimTable.__init__(self)
 
 
     def limpiar_datos_fuente(self):

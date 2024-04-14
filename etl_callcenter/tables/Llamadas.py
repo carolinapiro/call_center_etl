@@ -12,21 +12,18 @@ class Llamadas(FactTable):
         self.stg_table = "stg_fact_llamadas"
         self.table = "fact_llamadas"
         self.id = "id_llamada"
-        self.dm_connector = DMConnector()
 
         self.source_data_type = 'csv'
         self.source_data_path = 'source_files/Llamadas_2024.csv'
 
         self.start_date = start_date
         self.end_date = end_date
+        self.date_field = 'Fecha'
 
+        self.dm_connector = None
+        self.source_connector = None
 
-    def extraer_datos_fuente(self):
-        self.source_data_df = pd.read_csv(self.source_data_path, encoding='latin-1')
-        
-        self.source_data_df['Fecha'] = pd.to_datetime(self.source_data_df['Fecha'])
-        self.source_data_df = self.source_data_df[(self.source_data_df['Fecha'] >= self.start_date) &
-                                                  (self.source_data_df['Fecha'] < self.end_date) ]
+        FactTable.__init__(self)
 
 
     def limpiar_datos_fuente(self):

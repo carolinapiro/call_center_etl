@@ -10,15 +10,14 @@ class Logins(DimTable):
         self.stg_table = "stg_dim_logins"
         self.table = "dim_logins"
         self.id = "id_login"
-        self.dm_connector = DMConnector()
 
         self.source_data_type = 'json'
         self.source_data_path = 'source_files/logins_2024.json'
 
+        self.dm_connector = None
+        self.source_connector = None
 
-
-    def extraer_datos_fuente(self):
-        self.source_data_df = pd.read_json(self.source_data_path)
+        DimTable.__init__(self)
 
 
     def limpiar_datos_fuente(self):
@@ -83,6 +82,7 @@ class Logins(DimTable):
                                                      "'unknown'" +
                                               " FROM " + self.stg_table + "_new_canal_ids; "
                                         )
+
 
     def mapear_keys_dimensiones_fk(self):
         self.dm_connector.execute_query(query="UPDATE " + self.stg_table +

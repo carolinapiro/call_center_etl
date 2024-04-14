@@ -10,14 +10,14 @@ class Clientes(DimTable):
         self.stg_table = "stg_dim_clientes"
         self.table = "dim_clientes"
         self.id = "id_cliente"
-        self.dm_connector = DMConnector()
 
         self.source_data_type = 'csv'
         self.source_data_path = 'source_files/Customers_2024.csv'
 
+        self.dm_connector = None
+        self.source_connector = None
 
-    def extraer_datos_fuente(self):
-        self.source_data_df = pd.read_csv(self.source_data_path, encoding='latin-1')
+        DimTable.__init__(self)
 
 
     def limpiar_datos_fuente(self):

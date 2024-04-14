@@ -1,19 +1,16 @@
 from data_connectors.dm_connector import DMConnector
+from data_connectors.source_connector import *
 
 
 class Table:
 
     def __init__(self):
-        self.stg_table = None
-        self.table = None
-        self.id = None
         self.dm_connector = DMConnector()
 
-        self.source_data_type = None
-        self.source_data_path = None
-
-        self.start_date =  None
-        self.end_date =  None
+        if self.source_data_type == 'csv':
+            self.source_connector = CsvConnector()
+        elif self.source_data_type == 'json':
+            self.source_connector = JsonConnector()
 
 
     def truncar_tabla_stg(self):
@@ -21,7 +18,7 @@ class Table:
 
 
     def extraer_datos_fuente(self):
-        pass
+        self.source_data_df = self.source_connector.extract_data_from_file(self.source_data_path)
 
 
     def limpiar_datos_fuente(self):
@@ -68,6 +65,14 @@ class DimTable(Table):
 
 class FactTable(Table):
     
+    def extraer_datos_fuente(self):
+        Table.extraer_datos_fuente(self)
+
+        self.source_data_df[self.date_field] = pd.to_datetime(self.source_data_df[self.date_field])
+        self.source_data_df = self.source_data_df[(self.source_data_df[self.date_field] >= self.start_date) &
+                                                  (self.source_data_df[self.date_field] < self.end_date) ]
+
+
     def cargar_tabla_fact(self):
         pass
     
