@@ -14,14 +14,9 @@ class DM_Processes:
 
 
     def buscar_procesos_pendientes(self):
-        try:
-            return pd.read_sql("SELECT * FROM " + self.table +
-                            " WHERE status = 'pendiente'; ",
-                            self.dm_connector.engine)
-        except:
-            error_message = 'Error - ' + str(sys.exc_info()[1])
-            print(error_message)
-
+        return self.dm_connector.select_query_into_dataframe(query="SELECT * FROM " + self.table + 
+                                                                  " WHERE status = 'pendiente'; ")
+            
 
     def insertar_proceso_diario(self):
         fecha_ayer = (datetime.today() - timedelta(days=1)).strftime('%Y-%m-%d')
