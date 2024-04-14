@@ -1,58 +1,62 @@
-# Contexto y Objetivos
+# Introduction to the project
 
-Este proyecto contiene el código para popular un DataMart con datos de un CallCenter.
+This project contains code to populate a DataMart with data from a CallCenter, using an ETL Process.
 
-## Contexto del negocio
+To develop it, the following technologies were used: Python (Pandas, SQLAlchemy, ...), PostgreSQL (in Supabase)
 
-La empresa coloca micro préstamos a distintos clientes: pequeños tenderos y personas con limitados accesos a créditos, para que puedan financiar mejor sus compras y tener mayor liquidez. 
+## Business context
 
-Utilizando el Call Center, se realiza el seguimiento y acercamiento con estos clientes. 
+The company offers micro-credits to different clients: really small businesses and people with limited access to credit, so they can finance their purchases better. 
 
-Mediante llamadas, se los incentiva a usar los canales digitales. 
+Using the CallCenter, this company approaches and follows up on their clients. By calling these clients, they are encouraged to use the digital channels the company has made available.
 
-# Estructura del Proceso ETL
+## DataMart structure
 
-El repositorio del proyecto incluye:
-- una notebook con análisis exploratorio inicial de los datos.
-- un archivo principal, ejecutable desde consola, y
-- clases especializadas para: la conexión al DataMart y la lógica de carga de cada una de sus tablas.
+![DataMart Structure](docs/DataMart_Schema.png)
 
-## Lógica de carga 
+# ETL Process structure
 
-En el archivo principal:
-- Se consulta la tabla de control dm_processes para obtener los períodos de tiempo a cargar en cada tabla fact (en este caso Fact Llamadas)
-- Para cada período a cargar:
-    - Se actualizan las dimensiones relacionadas
-    - Se actualiza la fact
-    - Se actualiza el estado de los períodos en la tabla de control
+The project's repo includes:
+- a notebook containing an initial exploratory analysis of the data.
+- a main file, executable from a console,
+- specialized classes por: connecting to the DataMart and the loading logic for each of its tables.
 
-Lógica de carga para Dimensiones:
-- Se trunca la tabla stg o intermedia.
-- Se extraen todos los datos de la fuente.
-- Se limpian y estandarizan los datos fuente y 
-- se los carga en la tabla stg.
-- En caso de que la dimensión tenga claves foráneas a otras dimensiones:
-    - Se validan los id naturales de las dimensiones foráneas
-    - Se mapean los ids naturales de las dimensiones a las key surrogadas utilizadas en las tablas Dim
-- Se cargan los datos de la tabla stg a la Dim, usando la lógica de Slowly Changing Dimension, con atributos cambiantes (no hay atributos históricos o fijos en este caso)
+## Loading Logic 
 
-Lógica de carga para Facts:
-- Se trunca la tabla stg o intermedia.
-- Se extraen los datos de la fuente, filtrando para el período a cargar.
-- Se limpian y estandarizan los datos fuente y 
-- se los carga en la tabla stg.
-- Para las claves foráneas a dimensiones:
-    - Se validan los id naturales de las dimensiones foráneas
-    - Se mapean los ids naturales de las dimensiones a las key surrogadas utilizadas en las tablas Dim
-- Se cargan los datos de la tabla stg a la Fact, primero eliminando los datos existentes para el período.
+In the main file:
+- The control table, dm_processes, is queried to obtain the periods of time to load in each fact table (in this case, we have only one, fact_llamadas).
+- Por each period:
+    - The related dimensions are updated.
+    - The fact table is updated.
+    - The period in the control table is updated.
 
-Adicionalmente, al final del proceso se calculan métricas necesarias para el análisis.
+Dimension's load logic:
+- The intermediate or stg table is truncated.
+- All the source data is extracted.
+- The source data is cleaned and standardized, 
+- and load into the staging table.
+- If the dimension has foreign keys to other dimensions:
+    - Business ids from the FKs are validated
+    - and they are mapped to the surrogated keys used in the dimension tables
+- The data from the stg table is loaded into the dimension one, using Slowly Changing Dimension logic, with changing attributes (there are hystorical or fixed attributes in this case)
 
-# Opciones de Schedule
+Fact's load logic:
+- The intermediate or stg table is truncated.
+- Source data is extracted, filtering only by the period running.
+- The source data is cleaned and standardized, 
+- and load into the staging table.
+- For the foreign keys to dimension tables:
+    - Business ids from the FKs are validated
+    - and they are mapped to the surrogated keys used in the dimension tables
+- The data from the stg table is loaded into the fact one, first deleting the existing data for the running period.
 
-Actualmente, el repositorio incluye solo el código con la lógica a correr, lo cual puede hacerse manualmente por consola,
-habiendo configurado un virtual environment e instalado las dependencias en el archivo requirements.txt.
+Aditionally, at the end of the process, additional metrics are calculate.
 
-Para que el proceso corra todos los días, se puede utilizar una Azure Function, junto con una Azure pipeline o GitHub Actions para deployar el código del repositorio en la Azure Function App.
+# Scheduling options
 
-También se puede utilizar un orquestrador como Databricks Jobs o Airflow. Para utilizar Airflow, hay que hacer algunos cambios en el código para crear el DAG y las correspondientes Tasks.
+Currently, the repo includes only the code with the loading logic, which can be run manually using a console,
+having configured a virtual environment and installed the dependencies in the requirements.txt file.
+
+For the process to run daily, an Azure Function can be used, along with an Azure pipeline o GitHub Actions to deploy the code in the repo in the Azure Function App.
+
+An orchestrator, such as Databricks Jobs o Airflow, can also be used. To use Airflow, some changes must be applied to the code, to create a DAG and the corresponding Tasks.
