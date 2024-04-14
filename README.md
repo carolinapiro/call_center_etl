@@ -12,7 +12,7 @@ Using the CallCenter, this company approaches and follows up on their clients. B
 
 ## DataMart structure
 
-![DataMart Structure](docs/DataMart_Schema.png)
+![DataMart Structure](docs/DataMart_Schema.jpg)
 
 # ETL Process structure
 
