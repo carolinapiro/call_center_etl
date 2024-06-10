@@ -7,10 +7,10 @@ import pandas as pd
 class DMConnector:
 
     def __init__(self):
-        self.server = 'aws-0-sa-east-1.pooler.supabase.com:5432'
-        self.database = 'postgres'
-        self.username = 'postgres.rhhuzfmugrokjdwgicqi'
-        self.password = '095_check_plate'
+        self.server = 'server.pooler.supabase.com:5432'
+        self.database = 'database'
+        self.username = 'database.username'
+        self.password = 'password'
         
         try:           
             self.engine = create_engine("postgresql+psycopg2://"+ 
